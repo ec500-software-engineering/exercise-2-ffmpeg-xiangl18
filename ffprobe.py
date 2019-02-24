@@ -10,7 +10,7 @@ def ffprobe_sync(filein: Path) -> dict:
 		'json', '-show_streams', '-show_format', filein], 
 		universal_newlines=True
 	)
-	# file = open('test.json{}', 'w', encoding='utf-8')
+	# file = open('test.json', 'w', encoding='utf-8')
 	# json.dump(meta_json, file, ensure_ascii=False)
 	return json.loads(meta_json)
 
