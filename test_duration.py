@@ -14,5 +14,3 @@ def test_duration():
 
     assert orig_duration == approx(duration_480)
 
-# if __name__ == '__main__':
-#     test_duration()
