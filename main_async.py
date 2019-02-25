@@ -8,11 +8,18 @@ import time
 CMD = 'ffmpeg -y -i {input} -b:v {bit_rate}M -r {fps} -s hd{res} {output}'
 FFMPEG = shutil.which('ffmpeg')
 Ntask = 2
+
+# input video and output videos forms
+flist = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '60', 'fps': '1', 'res': '480'},
+         {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '60', 'fps': '1', 'res': '720'}]
+
+# check if there is ffmpeg in the environment
 if not FFMPEG:
     raise FileNotFoundError('FFMPEG not found')
 
 
 def process_input(input_filename, output_filename, bit_rate, fps, res):
+    
     cmd = CMD.format(
         input=input_filename,
         bit_rate=bit_rate,
@@ -50,8 +57,6 @@ async def ffmpeg(task_queue: asyncio.Queue, task_id: asyncio.Queue):
 
 
 async def run():
-    flist = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '60', 'fps': '1', 'res': '480'},
-             {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '60', 'fps': '1', 'res': '720'}]
     # Ntask = os.cpu_count()  # includes logical cores
     # if not isinstance(Ntask, int):
     #     Ntask = 2
