@@ -1,4 +1,4 @@
 mypy
 flake8
-ffprobe
+ffmpeg
 pytest
