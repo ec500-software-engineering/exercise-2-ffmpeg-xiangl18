@@ -17,7 +17,7 @@ You can test the duration of the output video by running:
 python test_duration.py 
 ```  
 ## Estimation
-The total running time for converting inital test video to outputVideo720p.mp4: 720p, 1M bit rate, 60fps , and outputVideo480p.mp4:480p, 1M bit rate, 60fps asynchronously is:  
+The total running time for converting inital test video to outputVideo720p.mp4: 720p, 1M bit rate, 60fps , and outputVideo480p.mp4: 480p, 1M bit rate, 60fps asynchronously is:  
 ```python
 running time: 1551068425.1034057.  
 ```  
