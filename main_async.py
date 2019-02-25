@@ -61,7 +61,7 @@ async def ffmpeg(task_queue: asyncio.Queue, task_id: asyncio.Queue):
             pass
 
 
-async def run()
+async def run():
     """
     main function to run the whole process.
     """
