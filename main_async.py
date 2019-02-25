@@ -50,8 +50,8 @@ async def ffmpeg(task_queue: asyncio.Queue, task_id: asyncio.Queue):
 
 
 async def run():
-    flist = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '30', 'fps': '1', 'res': '480'},
-             {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '30', 'fps': '1', 'res': '720'}]
+    flist = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '60', 'fps': '1', 'res': '480'},
+             {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '60', 'fps': '1', 'res': '720'}]
     # Ntask = os.cpu_count()  # includes logical cores
     # if not isinstance(Ntask, int):
     #     Ntask = 2
