@@ -19,7 +19,9 @@ if not FFMPEG:
 
 
 def process_input(input_filename, output_filename, bit_rate, fps, res):
-    
+    """
+    function to process input video format.
+    """
     cmd = CMD.format(
         input=input_filename,
         bit_rate=bit_rate,
@@ -30,6 +32,9 @@ def process_input(input_filename, output_filename, bit_rate, fps, res):
 
 
 async def ffmpeg(task_queue: asyncio.Queue, task_id: asyncio.Queue):
+    """
+    function to process video using queue.
+    """
     assert isinstance(FFMPEG, str)
     while not task_queue.empty():
         try:
@@ -56,7 +61,10 @@ async def ffmpeg(task_queue: asyncio.Queue, task_id: asyncio.Queue):
             pass
 
 
-async def run():
+async def run()
+    """
+    main function to run the whole process.
+    """
     # Ntask = os.cpu_count()  # includes logical cores
     # if not isinstance(Ntask, int):
     #     Ntask = 2
