@@ -13,7 +13,9 @@ Ntask = 2
 
 
 class ffmpeg(threading.Thread):
-
+    """
+    thread to process input videos.
+    """
     def __init__(self, task_queue, process_id):
         super().__init__()
         self.queue = task_queue
@@ -50,6 +52,9 @@ class ffmpeg(threading.Thread):
 
 
 def process_input(input_filename, output_filename, bit_rate, fps, res):
+    """
+    function to process input video format.
+    """
     cmd = CMD.format(
         input=input_filename,
         bit_rate=bit_rate,
@@ -60,6 +65,9 @@ def process_input(input_filename, output_filename, bit_rate, fps, res):
 
 
 def main():
+    """
+    main function to run the whole process.
+    """
     thread_list = []
     task_queue = queue.Queue()
     # Ntask = os.cpu_count()  # includes logical cores
