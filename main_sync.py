@@ -2,6 +2,7 @@ import shutil
 import subprocess
 import threading
 import queue
+import time
 
 
 CMD = 'ffmpeg -y -i {input} -b:v {bit_rate}M -r {fps} -s hd{res} {output}'
@@ -80,4 +81,7 @@ def main():
 
 
 if __name__ == '__main__':
+    start = time.time()
     main()
+    end = time.time()
+    print('running time:', end)
