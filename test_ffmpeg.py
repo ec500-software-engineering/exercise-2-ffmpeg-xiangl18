@@ -1,9 +1,8 @@
+import main_sync
 import pytest
 import subprocess
 import os
-import main_async
 import json
-import asyncio
 
 
 @pytest.fixture(scope='session')
@@ -21,18 +20,24 @@ def video_path(tmpdir_factory):
 
 
 class Test(object):
-    def test_run_ffmpeg(self, video_path):
-        """
-        test ffmpeg module
-        """
+    # def test_run_ffmpeg(self, video_path):
+    #     """
+    #     test ffmpeg module
+    #     """
+    #     output_file, output_file2, flist = self.make_input(video_path)
+    #     loop = asyncio.get_event_loop()
+    #     loop.run_until_complete(main_async.run(flist))
+    #     loop.stop()
+    #     assert os.path.exists(video_path)
+    #     assert os.path.exists(output_file)
+    #     assert os.path.exists(output_file2)
+    #
+    def test_run_ffmpeg_sync(self, video_path):
         output_file, output_file2, flist = self.make_input(video_path)
-        loop = asyncio.get_event_loop()
-        loop.run_until_complete(main_async.run(flist))
-        loop.stop()
+        main_sync.main(flist)
         assert os.path.exists(video_path)
         assert os.path.exists(output_file)
         assert os.path.exists(output_file2)
-
 
     def get_duration(self, filename):
         """
@@ -91,4 +96,7 @@ class Test(object):
         duration_orig = self.get_duration(fnin)
         duration_480 = self.get_duration(fnout)
         duration_720 = self.get_duration(fnout2)
+        assert duration_orig == pytest.approx(duration_480) == pytest.approx(duration_720)
+
+
         assert duration_orig == pytest.approx(duration_480) == pytest.approx(duration_720)
