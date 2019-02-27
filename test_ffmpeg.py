@@ -34,10 +34,7 @@ class Test(object):
     #
     def test_run_ffmpeg_sync(self, video_path):
         output_file, output_file2, flist = self.make_input(video_path)
-        main_sync.main(flist)
         assert os.path.exists(video_path)
-        assert os.path.exists(output_file)
-        assert os.path.exists(output_file2)
 
     def get_duration(self, filename):
         """
@@ -93,6 +90,7 @@ class Test(object):
         fnin = 'video.avi'
         fnout = 'outputVideo480p.mp4'
         fnout2 = 'outputVideo720p.mp4'
+        main_sync.main(flist)
         duration_orig = self.get_duration(fnin)
         duration_480 = self.get_duration(fnout)
         duration_720 = self.get_duration(fnout2)
