@@ -39,6 +39,7 @@ class Test(object):
         test ffmpeg sync module
         """
         output_file, output_file2, flist = self.make_input(video_path)
+        main_sync.main(flist)
         assert os.path.exists(video_path)
 
     def get_duration(self, filename):
