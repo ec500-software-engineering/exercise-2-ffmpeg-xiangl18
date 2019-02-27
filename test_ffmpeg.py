@@ -1,4 +1,3 @@
-from ffprobe import ffprobe_sync
 import pytest
 import subprocess
 import os
