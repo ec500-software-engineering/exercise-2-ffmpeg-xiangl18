@@ -97,6 +97,4 @@ class Test(object):
         duration_480 = self.get_duration(fnout)
         duration_720 = self.get_duration(fnout2)
         assert duration_orig == pytest.approx(duration_480) == pytest.approx(duration_720)
-
-
         assert duration_orig == pytest.approx(duration_480) == pytest.approx(duration_720)
