@@ -22,7 +22,7 @@ def video_path(tmpdir_factory):
 
 
 class Test(object):
-    def test_ffmpeg(self, video_path):
+    def test_run_ffmpeg(self, video_path):
         """
         test ffmpeg module
         """
