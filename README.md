@@ -14,8 +14,8 @@ in your command line.
 For now the output video will be: outputVideo720p.mp4: 720p, 1M bit rate, 60fps , and outputVideo480p.mp4: 480p, 1M bit rate, 60fps  
 You can change the bit rate or resolution or even output video name, and add more process by changing the following code:  
 ```python
-flist = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '60', 'fps': '1', 'res': '480'},
-         {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '60', 'fps': '1', 'res': '720'}]  
+flist = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '1', 'fps': '60', 'res': '480'},
+         {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '2', 'fps': '60', 'res': '720'}]  
 ```  
 in the main_async.py or main_sync.py.
 ## Tests  
