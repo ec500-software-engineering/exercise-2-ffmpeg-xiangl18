@@ -78,7 +78,7 @@ async def run(task_list):
         await task_queue.put(f)
         await task_id.put(i)
         tasks.append(asyncio.ensure_future(ffmpeg(task_queue, task_id)))
-#     await task_queue.join()
+    await task_queue.join()
     await asyncio.gather(*tasks, return_exceptions=True)
 
 
