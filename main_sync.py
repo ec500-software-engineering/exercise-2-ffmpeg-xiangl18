@@ -73,8 +73,8 @@ def main():
     # Ntask = os.cpu_count()  # includes logical cores
     # if not isinstance(Ntask, int):
     #     Ntask = 2
-    task_list = [{'input': 'video.avi', 'output': 'outputVideo_480p.mp4', 'rate': '60', 'fps': '1', 'res': '480'},
-                 {'input': 'video.avi', 'output': 'outputVideo1_720.mp4', 'rate': '60', 'fps': '1', 'res': '720'}]
+    task_list = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '60', 'fps': '1', 'res': '480'},
+                 {'input': 'video.avi', 'output': 'outputVideo720.mp4', 'rate': '60', 'fps': '1', 'res': '720'}]
     for task in task_list:
         task_queue.put(task)
     for i in range(Ntask):
