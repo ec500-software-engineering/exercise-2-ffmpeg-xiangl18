@@ -10,6 +10,9 @@ FFMPEG = shutil.which('ffmpeg')
 if not FFMPEG:
     raise FileNotFoundError('FFMPEG not found')
 Ntask = 2
+# input video and output videos forms
+task_list = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '1', 'fps': '60', 'res': '480'},
+             {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '2', 'fps': '60', 'res': '720'}]
 
 
 class ffmpeg(threading.Thread):
@@ -64,7 +67,7 @@ def process_input(input_filename, output_filename, bit_rate, fps, res):
     return cmd
 
 
-def main():
+def main(task_list):
     """
     main function to run the whole process.
     """
@@ -75,8 +78,6 @@ def main():
     # if not isinstance(Ntask, int):
     #     Ntask = 2
 
-    task_list = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '1', 'fps': '60', 'res': '480'},
-                 {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '2', 'fps': '60', 'res': '720'}]
     for task in task_list:
         task_queue.put(task)
     for i in range(Ntask):
