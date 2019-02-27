@@ -59,7 +59,6 @@ async def ffmpeg(task_queue: asyncio.Queue, task_id: asyncio.Queue):
         except queue.Empty:
             print("no task")
             pass
-        return 
 
 
 async def run(task_list):
