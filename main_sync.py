@@ -70,11 +70,13 @@ def main():
     """
     thread_list = []
     task_queue = queue.Queue()
+    # this code is for multi process based on the cpu logical cores, so far the number of tasks is locked to 2.
     # Ntask = os.cpu_count()  # includes logical cores
     # if not isinstance(Ntask, int):
     #     Ntask = 2
-    task_list = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '30', 'fps': '60', 'res': '480'},
-                 {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '30', 'fps': '60', 'res': '720'}]
+
+    task_list = [{'input': 'video.avi', 'output': 'outputVideo480p.mp4', 'rate': '1', 'fps': '60', 'res': '480'},
+                 {'input': 'video.avi', 'output': 'outputVideo720p.mp4', 'rate': '2', 'fps': '60', 'res': '720'}]
     for task in task_list:
         task_queue.put(task)
     for i in range(Ntask):
