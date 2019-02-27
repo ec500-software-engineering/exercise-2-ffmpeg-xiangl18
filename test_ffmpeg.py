@@ -1,7 +1,7 @@
-import main_sync
+# import main_sync
 import pytest
 import subprocess
-import os
+# import os
 import json
 
 
@@ -36,22 +36,22 @@ class Test(object):
 #         output_file, output_file2, flist = self.make_input(video_path)
 #         assert os.path.exists(video_path)
 
-#     def get_duration(self, filename):
-#         """
-#         get video duration for test
-#         """
-#         proc_out = subprocess.Popen(
-#             ['ffprobe', '-print_format', 'json',
-#              '-show_format', '-show_streams', filename],
-#             stderr=subprocess.DEVNULL,
-#             stdout=subprocess.PIPE
-#         )
-#         json_raw = ''
-#         for line in proc_out.stdout.readlines():
-#             json_raw += line.decode('utf-8')
-#         json_data = json.loads(json_raw)
-#         duration = int(round(float(json_data['format']['duration'])))
-#         return duration
+    def get_duration(self, filename):
+        """
+        get video duration for test
+        """
+        proc_out = subprocess.Popen(
+            ['ffprobe', '-print_format', 'json',
+             '-show_format', '-show_streams', filename],
+            stderr=subprocess.DEVNULL,
+            stdout=subprocess.PIPE
+        )
+        json_raw = ''
+        for line in proc_out.stdout.readlines():
+            json_raw += line.decode('utf-8')
+        json_data = json.loads(json_raw)
+        duration = int(round(float(json_data['format']['duration'])))
+        return duration
 
 #     def make_input(self, video_path):
 #         """
