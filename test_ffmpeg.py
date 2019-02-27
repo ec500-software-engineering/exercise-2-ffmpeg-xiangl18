@@ -1,4 +1,6 @@
 import main_sync
+import main_async
+import asyncio
 import pytest
 import subprocess
 import os
